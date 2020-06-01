@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: index-deploy
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+	env: production
+  template:
+    metadata:
+     name: index-pod
+     labels:
+	env: production
+     spec: 
+       containers:
+       - name: index-con
+         image: abhijeetdebe/myimage:latest
